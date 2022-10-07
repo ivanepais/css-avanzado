@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style-index/style-index.css">
+	<title>Alinear items en un contenedor flexible</title>
+</head>
+<body>
+	<h1>Alinear elementos en un contenedor flexible</h1>
+	<p>La alineación de los elementos depende del valor de direccion que tome el contenedor, si es columna o fila; cambiarán los ejes.</p>
+	<p>Si no determinamos una direccion con la propiedad flex, podemos usar las dos propiedades de alineacion que dispone el contenedor para los dos ejes: <em>align-items</em> y <em>justify-content</em></p>
+	<code>.box {
+  			display: flex;
+  			align-items: center;
+  			justify-content: center;
+		}
+
+		.box div {
+  			width: 100px;
+  			height: 100px;
+	}</code>
+
+	<h2>Propiedades que controlan la alineación</h2>
+	<p></p>
+	<ul>
+		<li><em>justify-content</em>: Controla la alineación de <em>todos</em> los elementos en el eje principal (main).</li>
+		<li><em>align-items</em>: Controla la alineación de todos los elementos en el eje secundario (cross).</li>
+		<li><em>align-self</em>: Controla la alineación de <em>un</em> elemento en el eje secundario.</li>
+		<li><em>align-content</em>: Controla el espacio entre las líneas del eje secundario.</li>
+		<li><em>gap</em>, <em>column-gap</em>, and <em>row-gap</em>: Crean espacios entre elementos flexibles.</li>
+	</ul>
+
+	<h3>Valores</h3>
+	<p>Align-items: En eje secundario</p>
+	<ul>
+		<li>flex-start</li>
+		<li>flex-end</li>
+		<li>center</li>
+		<li>stretch</li>
+		<li>baseline</li>
+	</ul>
+
+	<p>justify-content: En eje principal</p>
+	<ul>
+		<li>flex-start</li>
+		<li>flex-end</li>
+		<li>center</li>
+		<li>space-between</li>
+		<li>space-around</li>
+		<li>space-evenly</li>
+	</ul>
+
+	<p>align-content: En eje secundario</p>
+	<ul>
+		<li>flex-start</li>
+		<li>flex-end</li>
+		<li>center</li>
+		<li>space-between</li>
+		<li>space-around</li>
+		<li>stretch</li>
+		<li>space-evenly</li>
+	</ul>	
+
+
+	<h2>Usar margenes automaticos para alinear items en el eje principal</h2>
+	<p>Hacemos una alineación individual para separar un elemento o un grupo de elementos</p>
+	<p>Un ejemplo comun se da en una header con botones para la navegación en el sitio, el grupo principal puede estar a la izquierda y el secundario a la derecha. Puede pensar que están alineados con <em>justify-self</em>, pero no; dado que tenemos tres elementos de un lado y dos del otro. Cambiar la alineación del elemento "d", cambia tambien la del elemento "e".</p>
+	<p>En vez de esto, podemos apuntar al elemento "4" y separarlo de los primeros tres elementos, dandole un valor de margen izquierdo auto, ocuparán todo el espacio que pueda en su eje. Así funcionan los margenes automaticos para la izquierda y derecha.</p>
+	<code>.box {
+  			  display: flex;
+		   }
+		   .push {
+    		  margin-left: auto;
+	}</code>
+
+	<p>Tenemos dos clases, <em>.box</em> para flex basico y <em>.push</em> para aplicar margen auto a la izquierda.</p>
+	<p></p>
+
+	<h2>Crear espacios entre elementos flexibles</h2>
+	<p>Con las propiedades gap (abreviada), column-gap (para el eje principal) y row-gap (entre lineas flexibles, cuando tenemos wrap -elementos en varias lineas-).</p>
+	<code>.box {
+  		display: flex;
+  		flex-wrap: wrap;
+  		row-gap: 10px;
+  		column-gap: 2em;
+	}
+
+	.box > * {
+  		flex: 1;
+	}
+	</code>
+	
+</body>
+</html>
