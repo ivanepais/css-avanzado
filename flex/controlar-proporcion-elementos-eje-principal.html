@@ -29,7 +29,8 @@
 	<p>Para calcular cúanto espacio disponible hay para diseñar elementos flexibles, el navegador debe saber qué tan grande es el elemento; especialmente para elementos que no tienen un ancho u alto determinado.</p>
 	<p>Debemos saber los conceptos de <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width#min-content">min-content</a> y <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width#max-content">max-content</a>, nos servirán a medida que avancemos sobre cómo dimensionar los elementos flexibles.</p>
 	<p>Para <em>min-content</em>, la palabra más larga determina el tamaño del elementos, se hace lo más pequeño que puede de acuerdo a ésta; sin desbordar el contenedor. Para <em>max-content</em>, el contenido se expresa en una sola línea, ocupando todo el ancho necesario para que esto ocurra; provoca desborde.</p>
-	<code>        .min-content {
+	<code>        
+		.min-content {
           width: -moz-min-content;
           width: min-content;
           border: 2px dotted rgb(96, 139, 168);
@@ -163,10 +164,10 @@
 
     <h3>Qué establece el tamaño de flex-basis</h3>
     <ul>
-    	<li>¿Flex basis está configurada en auto (<em>max-content</em>) y el elemento tiene un la propiedad <em>width</em>? Si es así, el tamaño se basará en ese ancho.</li>
-    	<li>¿Flex basis está en auto o en content (en un navegador compatible)? Si es así, el tamaño se basa en el tamaño del artículo</li>
-    	<li>¿Tiene flex basis una unidad de longitud (ej, px), pero no cero? Si es así, este es el tamaño del artículo</li>
-    	<li>¿Flex basis está en 0? si es así, el tamaño del elemento no se tiene en cuenta para el cálculo del espacio compartido</li>
+    	<li>¿Flex basis está configurada en auto (<em>max-content</em>) y el elemento tiene la propiedad <em>width</em>? Si es así, el tamaño se basará en ese ancho.</li>
+    	<li>¿Flex basis está en auto o en content (en un navegador compatible)? Si es así, el tamaño se basa en el tamaño del artículo.</li>
+    	<li>¿Tiene flex basis una unidad de longitud (ej, px), pero no cero? Si es así, este es el tamaño del artículo.</li>
+    	<li>¿Flex basis está en 0? si es así, el tamaño del elemento no se tiene en cuenta para el cálculo del espacio compartido.</li>
     </ul>
 
     <h3>¿Hay espacio disponible en el contenedor?</h3>
@@ -179,7 +180,7 @@
 
     <h3>Otras formas de distribuir el espacio</h3>
     <p>Si no quiere hacer que los elementos crezcan o se reduzcan puede usar las propiedades de alineación para usar el espacio libre disponible.</p>
-    <p>Con justify-content o con la tecnica de margin auto</p>
+    <p>Con justify-content o con la tecnica de margin auto.</p>
 
 </body>
 </html>
