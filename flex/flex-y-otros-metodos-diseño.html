@@ -55,7 +55,7 @@
 	<h2>Flex y la propiedad display: contents</h2>
 	<p>La propiedad <em>display: contents</em>.</p>
 	<p>Ejemplo, tengo un contenedor flexible con tres elementos secundarios. Uno de estos elementos flexibles tiene <em>dos elementos anidados</em>, que <span>normalmente no participarían en el diseño flexible</span>. El diseño flexible solo se aplica a los hijos directos de un contenedor flexible.</p>
-	<p>Al agregar display: contenidos al envoltorio alrededor de los elementos anidados, puede ver que el elemento ha desaparecido del diseño, lo que permite que los dos subelementos se presenten como si fueran elementos secundarios directos del contenedor flexible. Puede intentar eliminar la pantalla: línea de contenido para verla regresar.</p>
+	<p>Al agregar display: contents al envoltorio alrededor de los elementos anidados, puede ver que el elemento ha desaparecido del diseño, lo que permite que los dos subelementos se presenten como si fueran elementos secundarios directos del contenedor flexible. Puede intentar eliminar la pantalla: línea de contenido para verla regresar.</p>
 	<p>Tenga en cuenta que esto solo elimina el cuadro del diseño; los subhijos no se vuelven hijos directos de ninguna otra manera. Puede ver que, como he usado un selector secundario directo para agregar el fondo y los bordes a los elementos flexibles, esto no se ha aplicado a nuestros elementos secundarios anidados. Se han presentado como artículos flexibles, pero como no son hijos directos, no obtienen el otro estilo.</p>
 	<p>Al haber eliminado estilo con display: contents; no puede usarlo para, por ejemplo, agregar un color de fondo detrás de los subhijos anidados</p>
 	<code>        .box {
