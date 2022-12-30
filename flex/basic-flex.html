@@ -7,8 +7,28 @@
 	<title>Flex basico - CSS</title>
 </head>
 <body>
+	<h2>Flex direction</h2>
+	<p>Basicamente, cada dirección tiene dos ejes. Eje principlay y eje vertical.</p>
+	<ul>
+		<li>Row: el eje principal es la direción en línea y el vertical es la direccion en bloque.</li>
+		<li>Column: el eje principal es la dirección en bloque y el vertical es la dirección en línea.</li>
+	</ul>
+
+	<p>Tambien tienen la ubicación dónde empiezan o terminan los elementos (start/end).</p>
+
+
 	<h2>Flex abreviada</h2>
-	<p>La abreviatura <span>flex: 1;</span> o <span>flex: 2;</span> es como si usará <em>flex: 1 1 0;</em> o <em>flex: 2 1 0;</em> para los valores flex grow (crecimiento), shrink (reducción) o basis (tamaño). Los elementos pueden crecer o reducirse a partir de una base flexible de 0.</p>
+	<p>La abreviatura <span>flex: 1;</span> o <span>flex: 2;</span> es como si usará <em>flex: 1 1 0</em> o <em>flex: 2 1 0;</em> para los valores flex grow (crecimiento), shrink (reducción) o basis (tamaño). Los elementos pueden crecer o reducirse a partir de una base flexible de 0.</p>
+
+	<p>El valor <em>auto</em> indica que los elementos toman el tamaño establecido en ellos mismo o si no tienen, su contenido determinará su tamaño.</p>
+
+	<p>Otras:</p>
+	<ul>
+		<li><em>flex: initial</em> resetea a los valores iniciales que son <em>flex: 0 1</em>, cero para crecimiento, uno para reducción y <em>auto</em> para la base de los valores anteriores.</li>
+		<li><em>Flex: auto</em> es <em>flex: 1 1 auto</em>, los elementos pueden crecer y reducirse.</li>
+		<li><em>Flex: none</em> es <em>Flex: 0 0 auto</em> se distribuyen en el contenedor utilizando el tamaño mismo de los elementos, debido al valor auto.</li>
+		<li></li>
+	</ul>
 
 	<h2>Alinear elementos flexibles</h2>
 	<p>A donde empiezan o terminan los elementos, está determinado por la propiedad <em>writting-mode</em>.</p>

@@ -16,7 +16,7 @@
 	<p>Flexbox se adapta a los modos de escritura que determina la propiedad <em>writing-mode</em> con sus valores:</p>
 	<ul>
 		<li>horizontal-tb: Por defecto, usado en los idiomas en latin.</li>
-		<li>vertical-rl: usado en idiomas y cultura japonesa china.</li>
+		<li>vertical-rl: usado en idiomas y cultura japonesa, china.</li>
 		<li>vertical-lr</li>
 		<li>sideways-rl: (solo en firefox).</li>
 		<li>sideways-lr: (solo en firefox).</li>
@@ -32,19 +32,28 @@
 	<p>Con flex y grid podemos sobreescribir otros metodos, los reemplazamos, no se aplican todos juntos. Si un elemento flexible se convierte en un elemento de cuadrícula, se ignorarán las propiedades flexibles que se hayan asignado a los elementos secundarios. Se puede usar flex para reemplazar un grid, en un navegador antiguo para dar compatibilidad y no cambiar tanto el diseño, ademas podemos usar las propiedades de <em>Box alignment</em> para alinear los elementos.</p>
 	<p>Podemos crear diseños muy similares:</p>
 	<p>Flex:</p>
-	<code>        .box {
+	<code>
+		<!--         
+		.box {
           display: flex;
           flex-wrap: wrap;
         }
 
         .box>* {
           flex: 1 1 200px;
-        }</code>
+        }
+    	-->
+    </code>
+
     <p>Grid:</p>
-	<code>  .box {
+	<code>
+		<!-- 
+	  	.box {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, auto));
-          }</code>
+          }
+      	-->
+    </code>
 	<p>Diferencias:</p>
 	<ul>
 		<li>Diseño unidimensional en flex (todos los elementos se agrupan en fila o columna) versus, diseño bidimensional en grid (los elementos se agruparán en filas y columnas).</li>
@@ -58,14 +67,18 @@
 	<p>Al agregar display: contents al envoltorio alrededor de los elementos anidados, puede ver que el elemento ha desaparecido del diseño, lo que permite que los dos subelementos se presenten como si fueran elementos secundarios directos del contenedor flexible. Puede intentar eliminar la pantalla: línea de contenido para verla regresar.</p>
 	<p>Tenga en cuenta que esto solo elimina el cuadro del diseño; los subhijos no se vuelven hijos directos de ninguna otra manera. Puede ver que, como he usado un selector secundario directo para agregar el fondo y los bordes a los elementos flexibles, esto no se ha aplicado a nuestros elementos secundarios anidados. Se han presentado como artículos flexibles, pero como no son hijos directos, no obtienen el otro estilo.</p>
 	<p>Al haber eliminado estilo con display: contents; no puede usarlo para, por ejemplo, agregar un color de fondo detrás de los subhijos anidados</p>
-	<code>        .box {
+	<code>
+	    <!--	
+	        .box {
             display: flex;
         }
 
         .nested {
             background-color: orange;
             display: contents;
-        }</code>
+        }
+    	-->
+    </code>
 	<p>Esta característica será muy útil en circunstancias en las que necesite el marcado por razones semánticas pero no desee mostrar el cuadro que generaría de forma predeterminada.</p>
 </body>
 </html>

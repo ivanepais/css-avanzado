@@ -10,7 +10,9 @@
 	<h1>Alinear elementos en un contenedor flexible</h1>
 	<p>La alineación de los elementos depende del valor de direccion que tome el contenedor, si es columna o fila; cambiarán los ejes.</p>
 	<p>Si no determinamos una direccion con la propiedad flex, podemos usar las dos propiedades de alineacion que dispone el contenedor para los dos ejes: <em>align-items</em> y <em>justify-content</em></p>
-	<code>.box {
+	<code>
+		<!--
+		.box {
   			display: flex;
   			align-items: center;
   			justify-content: center;
@@ -19,7 +21,9 @@
 		.box div {
   			width: 100px;
   			height: 100px;
-	}</code>
+  		}	
+  		-->
+	</code>
 
 	<h2>Propiedades que controlan la alineación</h2>
 	<p></p>
@@ -30,6 +34,20 @@
 		<li><em>align-content</em>: Controla el espacio entre las líneas del eje secundario.</li>
 		<li><em>gap</em>, <em>column-gap</em>, and <em>row-gap</em>: Crean espacios entre elementos flexibles.</li>
 	</ul>
+	<code>
+		<!--
+			<div class="box">
+			  <div>One</div>
+			  <div>Two</div>
+			  <div>Three</div>
+			  <div>Four</div>
+			  <div>Five</div>
+			  <div>Six</div>
+			  <div>Seven</div>
+			  <div>Eight</div>
+			</div>
+		 -->
+	</code>	
 
 	<h3>Valores</h3>
 	<p>Align-items: En eje secundario</p>
@@ -40,6 +58,39 @@
 		<li>stretch</li>
 		<li>baseline</li>
 	</ul>
+	<code>
+		<!--
+			.box {
+			  display: flex;
+			  align-items: stretch;
+			}
+
+			.box {
+			  display: flex;
+			  align-items: flex-start;
+			  height: 200px;
+			}
+			.box>*:first-child {
+			    align-self: stretch;
+			}
+			.box .selected {
+			    align-self: center;
+			}
+
+			.box {
+			  display: flex;
+			  flex-direction: column;
+			  align-items: flex-start;
+			  width: 200px;
+			}
+			.box>*:first-child {
+			    align-self: stretch;
+			}
+			.box .selected {
+			    align-self: center;
+			}
+		 -->
+	</code>
 
 	<p>justify-content: En eje principal</p>
 	<ul>
@@ -50,6 +101,27 @@
 		<li>space-around</li>
 		<li>space-evenly</li>
 	</ul>
+	<code>
+		<!--
+			.box {
+			  display: flex;
+			  justify-content: space-between;
+			}
+
+			.box {
+			  display: flex;
+			  flex-direction: column;
+			  justify-content: space-between;
+			  height: 500px;
+			}
+
+			.box {
+			  direction: rtl;
+			  display: flex;
+			  justify-content: flex-end;
+			}
+		 -->
+	</code>	
 
 	<p>align-content: En eje secundario</p>
 	<ul>
@@ -60,35 +132,70 @@
 		<li>space-around</li>
 		<li>stretch</li>
 		<li>space-evenly</li>
-	</ul>	
+	</ul>
+	<code>
+		<!--
+			.box {
+			  display: flex;
+			  flex-wrap: wrap;
+			  height: 400px;
+			  align-content: space-between;
+			}
+
+			.box {
+			  display: flex;
+			  flex-wrap: wrap;
+			  flex-direction: column;
+			  width: 500px;
+			  height: 400px;
+			  align-content: space-between;
+			}
+		 -->
+	</code>	
 
 
 	<h2>Usar margenes automaticos para alinear items en el eje principal</h2>
 	<p>Hacemos una alineación individual para separar un elemento o un grupo de elementos</p>
 	<p>Un ejemplo comun se da en una header con botones para la navegación en el sitio, el grupo principal puede estar a la izquierda y el secundario a la derecha. Puede pensar que están alineados con <em>justify-self</em>, pero no; dado que tenemos tres elementos de un lado y dos del otro. Cambiar la alineación del elemento "d", cambia tambien la del elemento "e".</p>
 	<p>En vez de esto, podemos apuntar al elemento "4" y separarlo de los primeros tres elementos, dandole un valor de margen izquierdo auto, ocuparán todo el espacio que pueda en su eje. Así funcionan los margenes automaticos para la izquierda y derecha.</p>
-	<code>.box {
-  			  display: flex;
-		   }
-		   .push {
-    		  margin-left: auto;
-	}</code>
+	<code>
+		<!-- 
+		<div class="box">
+		  <div>One</div>
+		  <div>Two</div>
+		  <div>Three</div>
+		  <div class="push">Four</div>
+		  <div>Five</div>
+		</div>
+
+		.box {
+  			display: flex;
+		}
+		.push {
+    		margin-left: auto;
+    	}
+    	-->
+	</code>
+	<p>Vemos dos elementos a la izquierda o al final que están separados de los del inicio.</p>
 
 	<p>Tenemos dos clases, <em>.box</em> para flex basico y <em>.push</em> para aplicar margen auto a la izquierda.</p>
 	<p></p>
 
 	<h2>Crear espacios entre elementos flexibles</h2>
 	<p>Con las propiedades gap (abreviada), column-gap (para el eje principal) y row-gap (entre lineas flexibles, cuando tenemos wrap -elementos en varias lineas-).</p>
-	<code>.box {
-  		display: flex;
-  		flex-wrap: wrap;
-  		row-gap: 10px;
-  		column-gap: 2em;
-	}
+	<code>
+		<!--
+		.box {
+  		  display: flex;
+  		  flex-wrap: wrap;
+  		  row-gap: 10px;
+  		  column-gap: 2em;
+		}
 
-	.box > * {
-  		flex: 1;
-	}
+		.box > * {
+  		  flex: 1;
+	    }
+	-->
 	</code>
 	
 </body>
