@@ -16,9 +16,31 @@
 	<p>La <a href="https://drafts.csswg.org/css-grid/#order-accessibility">especificación</a> de grid hace referencia a lo que sucede con la accesibilidad cuando se reordenan los elementos: no afecta al orden del Dom ni afecta a los lectores de pantalla ni al orden de navegación con la tecla <span>tab</span>.</p>
 	<p>Solo se utilizarán estas propiedades para el reordenamiento visual y no para el orden lógico.</p>
 
-	<h3>Re-orden visual, no lógico</h3>
-	<p>Cuando reordenamos cosas, sea en flex o grid; solo es visualmente. El código fuente es lo que controla el teto a voz y el orden de tabulación.</p>
+	<h3>Re-orden visual no es el lógico</h3>
+	<p>Cuando reordenamos cosas, sea en flex o grid; solo es visualmente. El código fuente es lo que controla el texto a voz y el orden de tabulación.</p>
 	<p>Si queremos hacer un reordenamiento lógico lo hacemos desde el código fuente, si queremos hacer un reordenamiento visual lo hacemos desde el CSS.</p>
+	<code>
+		<!-- 
+			.wrapper {
+			  display: grid;
+			  grid-template-columns: repeat(3, 1fr);
+			  grid-auto-rows: 100px;
+			}
+		-->
+			.box1 {
+			  grid-column: 1;
+			  grid-row: 2;
+			}
+		<!--
+			<div class="wrapper">
+			  <div class="box box1"><a href="">One</a></div>
+			  <div class="box box2"><a href="">Two</a></div>
+			  <div class="box box3"><a href="">Three</a></div>
+			  <div class="box box4"><a href="">Four</a></div>
+			  <div class="box box5"><a href="">Five</a></div>
+			</div>
+		-->
+	</code>	
 
 	<h2>Como debemos afrontar la accesibilidad desde Grid</h2>
 	<p>Debemos priorizar un orden lógico, tambien debemos ver como mantener la accesibilidad para todos los tipos de usuarios cuando interactuan los elementos en la página.</p>

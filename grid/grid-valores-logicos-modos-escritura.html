@@ -52,7 +52,7 @@
 	<h2>Ejemplos fisicos y lógicos</h2>
 	<p>Si usamos <em>position: absolute</em> en un elemento, lo tenemos que mover con las propiedades fisicas:</p>
 	<code>
-		.container {
+		    .container {
            position: relative;
         }
         .item {
@@ -70,7 +70,6 @@
 	<h2>Block e inline</h2>
 	<p>Con las propiedades lógicas dejamos de ver el mundo como de izquierda a derecha y de arriba hacia abajo como lo haciamos con las propiedades fisicas.</p>
 	<p><em>Necesitamos un nuevo punto de referencia</em>, así que usamos los <em>ejes de bloque y de línea</em> como haciamos en las en flex y las alineaciones. Comenzamos a ver el diseño en terminos de bloque y en línea.</p>
-    <!-- hacia donde fluye el contenedor su contenido  y a su vez sus elementos y contenido ???-->
 
     <h2>writing-mode y nuevos metodos de diseño</h2>
     <p>Si aplicamos a un contenedor <em>writing-mode</em> distinto de <em>horizontal-tb</em> podemos cambiar su orientación, ya no es solo para un titulo, u otro elemento.</p>
@@ -87,18 +86,42 @@
     </ul>
     <p>Estos dos ultimos solo funcionan en firefox.</p>
 
+    <code>
+      <!--
+          <div class="wrapper">
+            <p style="writing-mode: horizontal-tb">
+              I have writing mode set to the default <code>horizontal-tb</code>
+            </p>
+            <p style="writing-mode: vertical-rl">
+              I have writing mode set to <code>vertical-rl</code>
+            </p>
+          </div>
+
+       -->
+    </code>
+
     <h2>writing-mode en grid</h2>
     <p>Cambiar el modo de escritura significa cambiar donde están los bloques y las líneas.</p>
 
     <h3>writing-mode por defecto</h3>
     <p>Usa <em>horizontal-tb</em>, la cuadrícula coloca los elementos desde arriba a la izquierda y el desplazamientos es hacia la derecha; llenando las celdas en este sentido, <em>se ordenan horizontalmente</em>. El contenedor se muestra horizontalmente y aparecen uno debajo de otro.</p>
     <code>
+        <!--
         .wrapper {
            display: grid;
            grid-template-columns: repeat(3, 100px);
            grid-template-rows: repeat(2, 100px);
            gap: 10px;
         }
+        
+        <div class="wrapper">
+          <div class="item1">Item 1</div>
+          <div class="item2">Item 2</div>
+          <div class="item3">Item 3</div>
+          <div class="item4">Item 4</div>
+          <div class="item5">Item 5</div>
+        </div>
+        -->
     </code>
 
     <h3>Cambiando el writing-mode</h3>
@@ -107,9 +130,11 @@
         .wrapper {
            writing-mode: vertical-lr;
            display: grid;
+           <!--
            grid-template-columns: repeat(3, 100px);
            grid-template-rows: repeat(2, 100px);
            gap: 10px;
+         -->
         }
     </code>
     <p>Todo esto porque cambia el eje de bloque (contenedor) y el eje en línea (elementos)</p>
@@ -118,6 +143,7 @@
     <p>Si usamos alineación para writing-mode en vertical-lr, aplicamos los valores <em>start</em> y <em>end</em> de la misma manera cuando las aprendimos.</p>
 
     <code>
+        <!--
         .wrapper {
           writing-mode: vertical-lr;
           display: grid;
@@ -125,12 +151,12 @@
           grid-template-rows: repeat(3, 100px);
           gap: 10px;
         }
-
+        -->
         .item1 {
           grid-column: 1 / 4;
           align-self: start;
         }
-
+        <!--
         .item2 {
           grid-column: 1 / 3;
           grid-row: 2 / 4;
@@ -143,6 +169,7 @@
           align-self: end;
           justify-self: end;
         }
+      -->
     </code>
     <p>El valor <em>start</em> coloca a los elementos en la parte superior y el valor <em>end</em> en la parte inferior del contenedor. Lo que cambia es su posicionamiento en las lineas.</p>
 
@@ -155,6 +182,7 @@
     <h3>Ubicación en línea de izquierda a derecha</h3>
     <p>Es el valor por defecto, <em>horizontal-tb</em>. Los elementos comienzan en una línea y terminan en otra. La línea 1 está arriba a la izquierda y la línea -1 a la derecha.</p>
     <code>
+        <!--
         .wrapper {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -165,35 +193,45 @@
         .item1 {
           grid-column: 1;
         }
+      -->
         .item2 {
           grid-column: -1 / -3;
         }
+        <!--
         .item3 {
           grid-column: 1 / 3;
           grid-row: 2;
         }
+      -->
     </code>
 
     <h3>Ubicación en línea de derecha a izquierda</h3>
     <p>Usamos la propiedad <em>direction</em> con el valor <em>rtl</em> en el contenedor. La línea 1 está arriba a la derecha y la línea -1 al lado izquierdo.</p>
     <code>
+        
         .wrapper {
           direction: rtl;
           display: grid;
+        <!--
           grid-template-columns: repeat(3, 1fr);
           grid-template-rows: repeat(2, 100px);
           gap: 10px;
+        -->
         }
+        <!--
         .item1 {
           grid-column: 1;
         }
+      -->
         .item2 {
           grid-column: -1 / -3;
         }
+        <!--
         .item3 {
           grid-column: 1 / 3;
           grid-row: 2;
         }
+        -->
     </code>
     <p>Sirve más que nada para contenido de texto.</p>
 
@@ -218,15 +256,18 @@
     <h2>Modos de escritura mixtos y grid</h2>
     <p>Podemos usarlos creativamente para poner un encabezado o una barra de navegación con links en vertical.</p>
     <code>
+        <!--
         .wrapper {
           display: grid;
           grid-gap: 20px;
           grid-template-columns: 1fr auto;
           font: 1em Helvetica, Arial, sans-serif;
         }
+      -->
         .wrapper nav {
           writing-mode: vertical-lr;
         }
+        <!--
         .wrapper ul {
           list-style: none;
           margin: 0;
@@ -237,6 +278,15 @@
         .wrapper a {
           text-decoration: none;
         }
+
+          <nav>
+            <ul>
+              <li><a href="">Link 1</a></li>
+              <li><a href="">Link 2</a></li>
+              <li><a href="">Link 3</a></li>
+            </ul>
+          </nav>
+      -->
    </code>
    <p>Tenemos una cuadrícula con divs como elementos secundarios con dos columnas, una para el contenido y otra para la barra de navegación que se auto ajusta en el espacio sobrante.</p>
 

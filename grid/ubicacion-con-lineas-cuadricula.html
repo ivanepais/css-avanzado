@@ -13,26 +13,38 @@
 	<h2>Ejemplo basico</h2>
 	<p>Si ponemos 3 filas y tres columnas nos dan 4 líneas para cada dimensión. Se ubican automaticamente si no le damos nosotros, una ubicación distinta a todos los elementos.</p>
 	<code>
+		<!--
 		.wrapper {
            display: grid;
            grid-template-columns: repeat(3, 1fr);
            grid-template-rows: repeat(3, 100px);
         }
+
+        <div class="wrapper">
+		  <div class="box1">One</div>
+		  <div class="box2">Two</div>
+		  <div class="box3">Three</div>
+		  <div class="box4">Four</div>
+		</div>
+    	-->
 	</code>
 	<p>En el inspector podemos activar una opción para que nos muestre las líneas de grid.</p>
 
 	<h2>Posicionar elementos de acuardo a los numeros de líneas</h2>
 	<p>El primer valor será la línea de inicio y el segundo será el de la línea final para la columna y la fila. El elemento puede tener una forma horizontal o vertical.</p>
 	<code>
+		<!--
 		.box1 {
            grid-column-start: 1;
            grid-column-end: 2;
            grid-row-start: 1;
            grid-row-end: 4;
         }
+    	-->
 	</code>
 	<p>Los demás elementos se mueven automaticamente. Tambien podemos dejar celdas vacias, evitando las líneas que definen ese espacio.</p>
 	<code>
+		<!--
 		box2 {
            grid-column-start: 3;
            grid-column-end: 4;
@@ -53,6 +65,7 @@
            grid-row-start: 3;
            grid-row-end: 4;
         }
+    	-->
 	</code>
 	
 	<h2>Abreviaturas para colocar elementos: <em>grid-column</em> y <em>grid-row</em></h2>
@@ -96,6 +109,8 @@
 		.box1 {
            grid-area: 1 / 1 / 4 / 2;
         }
+
+        <!--
         .box2 {
            grid-area: 1 / 3 / 3 / 4;
         }
@@ -105,7 +120,7 @@
         .box4 {
            grid-area: 3 / 2 / 4 / 4;
         }
-
+		-->
 	</code>
 
 	<h2>Colocar elementos a la inversa: líneas negativas</h2>

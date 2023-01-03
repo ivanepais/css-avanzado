@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../../style-index/style-index.css">
-	<title></title>
+	<title>Box Alignment en Flex</title>
 </head>
 <body>
 	<h1>Alineación en flex</h1>
@@ -14,14 +14,14 @@
 	<p>Los elementos se alinean en el <em>eje principal</em> con <em>justify-content</em> y para alinear elementos en el <em>eje transversal</em> (corta al eje primario) se usa <em>align-content</em>.</p>
 	<code>
 		.box {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
+		  display: flex;
+		  align-items: flex-start;
+		  justify-content: space-between;
+		}
 
-.box :first-child {
-    align-self: center;
-}
+		.box :first-child {
+		    align-self: center;
+		}
 	</code>
 	<p>Flex está atado a los modos de escritura, estos modifican y cambian el comportamiento de los ejes.</p>
 
@@ -42,11 +42,22 @@
 	<p>Si establecemos auto margin a un elemento empuja hacia un lado los elementos que siguen a este. Cuando no hay espacio disponible para el margen automatico, flex actúa de la misma manera; reduciendo espacio para que entre todos los elementos.</p>
 	<code>
 		.box {
-  display: flex;
-}
-.push {
-    margin-left: auto;
-}
+		  display: flex;
+		}
+
+		.push {
+		    margin-left: auto;
+		}
+
+		<!--
+			<div class="box">
+			  <div>One</div>
+			  <div>Two</div>
+			  <div>Three</div>
+			  <div class="push">Four</div>
+			  <div>Five</div>
+			</div>
+		-->
 	</code>
 	<p>A partir del cuarto elemento son empujados hacia la izquierda</p>
 
@@ -56,6 +67,29 @@
 	<h3>Crear espacios de tamaño fijo entre elementos</h3>
 	<p>En el <em>eje principal</em>, la propiedad <em>column-gap</em> crea espacios de tamaño fijo entre elementos adyacentes (a los lados).</p>
 	<p>En el <em>eje transversal</em>, la propiedad <em>row-gap</em> crea espacio en las lineas adyacentes, debe haber <em>flex-wrap</em>.</p>
+	<code>
+		<!--
+			.box {
+			  display: flex;
+			  flex-wrap: wrap;
+			  row-gap: 10px;
+			  column-gap: 2em;
+			}
+
+			.box > * {
+			  flex: 1;
+			}
+
+			<div class="box">
+			  <div>One</div>
+			  <div>Two</div>
+			  <div>Three</div>
+			  <div>Four</div>
+			  <div>Five</div>
+			  <div>Six</div>
+			</div>
+		-->
+	</code>
 	
 </body>
 </html>

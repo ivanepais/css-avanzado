@@ -30,26 +30,28 @@
 	<p>La alineación de bloques en horizontal antes de que exista flexbox, se hacia con margenes automaticos. Un margen en <em>auto</em> absorve el espacio, si lo usamos a la izquierda y derecha; empuja el bloque hacia el centro.</p>
 	<code>
 		.container {
-  width: 20em;
-  margin-left: auto;
-  margin-right: auto;
-}
+		  width: 20em;
+		  margin-left: auto;
+		  margin-right: auto;
+		}
 	</code>
 	<p>En el diseño de tabla se usa <em>vertical-align</em> para alinear el contenido de una celde de la tabla.</p>
 
 	<p>Para muchos casos de uso, podemos convertir el contenedor de bloques en un contenedor flexible para alinear horizontalmente. En el ejemplo, tenemos un contendor flex con un solo elemento: dentro del div (.box) hay un sub elemento div.</p>
 	<code>
 		.box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		}
 
-.box div {
-  width: 100px;
-  height: 100px;
-}
-	</code>
+		<!--
+		.box div {
+		  width: 100px;
+		  height: 100px;
+		}
+		-->
+		</code>
 	
 </body>
 </html>

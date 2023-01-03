@@ -32,11 +32,13 @@
 		<li>last baseline</li>
 	</ul>
 	<code>
+		<!--
 		.wrapper {
 		   display: grid;
 		   grid-template-columns: repeat(8, 1fr);
 		   gap: 10px;
 		   grid-auto-rows: 100px;
+		-->
 		   grid-template-areas:
 			   "a a a a b b b b"
 			   "a a a a b b b b"
@@ -48,6 +50,8 @@
 		.item1 {
 			grid-area: a;
 		}
+
+		<!--
 		.item2 {
 			grid-area: b;
 		}
@@ -56,12 +60,21 @@
 		}
 		.item4 {
 			grid-area: d;
-		} 
+		}
+
+		<div class="wrapper">
+		  <div class="item1">Item 1</div>
+		  <div class="item2">Item 2</div>
+		  <div class="item3">Item 3</div>
+		  <div class="item4">Item 4</div>
+		</div>
+	-->
 	</code>
 
 	<h3>Usando align-self</h3>
 	<p>Podemos alinear uno por uno los elementos o despues de alinear todos, elegimos un elemento necesite una alineación distinta a los demás.</p>
 	<code>
+		<!--
 		.wrapper {
 		   display: grid;
 		   grid-template-columns: repeat(8, 1fr);
@@ -84,10 +97,17 @@
 		   grid-area: c;
 		   align-self: end;
 		}
+		-->
 		.item4 {
 		   grid-area: d;
 		   align-self: center;
 		}
+
+		<!--
+		<div class="wrapper">
+		  <div class="item1">Item 1</div>
+		</div>
+		-->
 	</code>
 
 	<h3>Elementos con relación de aspecto intrinseca</h3>
@@ -100,6 +120,7 @@
 	<p>Los valores son los mismo: auto, normal, start, end, center, stretch, baseline, first baseline, last baseline.</p>
 	<p>el valor predeterminado es <em>stretch</em>, excepto para elementos con una relación de aspecto intrínseca. Debemos aplicar la tecnica anterior, para respetar la especificación y hacer buena practica poniendo <em>justify-self: start</em> para los objetos multimedia como pueden ser las imagenes.</p>
 	<code>
+		<!--
 		.wrapper {
 			display: grid;
 			grid-template-columns: repeat(8, 1fr);
@@ -114,10 +135,12 @@
 	.item1 {
 	   grid-area: a;
 	}
+	-->
 	.item2 {
 	   grid-area: b;
 	   justify-self: start;
 	}
+	<!--
 	 .item3 {
 		grid-area: c;
 		justify-self: end;
@@ -126,7 +149,7 @@
 	   grid-area: d;
 	   justify-self: center;
 	}
-
+	-->
 	</code>
 
 	<h3>Propiedades abreviadas de alineación</h3>
@@ -136,20 +159,24 @@
 	<h2>Centrar elemento en un área</h2>
 	<p>Si combinamos <em>align-self</em> y <em>justify-self</em> en un elemento lo podemos centrar en un area/cuadrícula entera.</p>
 	<code>
+		<!--
 		.wrapper {
 		   display: grid;
 		   grid-template-columns: repeat(4, 1fr);
 		   gap: 10px;
 		   grid-auto-rows: 200px;
+		-->
 		   grid-template-areas:
 		   ". a a ."
 		   ". a a .";
+		<!--   
 		}
 		.item1 {
 		   grid-area: a;
 		   align-self: center;
 		   justify-self: center;
 		}
+		-->
 	</code>
 
 	<h2>Alinear tracks (filas y columnas) en el eje de bloque</h2>
@@ -175,6 +202,7 @@
 	<h3>Comportamiento por defecto de las filas y columnas</h3>
 	<p>Tienen el valor <em>start</em> de la propiedad <em>grid-area</em> usando sus líneas, empiezan en la esquina superior izquierda.</p>
 	<code>
+		<!--
 		* {
 		   box-sizing: border-box;
 		}
@@ -192,10 +220,11 @@
 		   padding: 1em;
 		   color: #d9480f;
 		}
-
+		-->
 	</code>
 
 	<code>
+		<!--
 		.wrapper {
 		   display: grid;
 		   grid-template-columns: repeat(3, 100px);
@@ -220,11 +249,20 @@
 		.item4 {
 		   grid-area: d;
 		}
+
+		<div class="wrapper">
+		  <div class="item1">Item 1</div>
+		  <div class="item2">Item 2</div>
+		  <div class="item3">Item 3</div>
+		  <div class="item4">Item 4</div>
+		</div>
+	-->
 	</code>
 
 	<h3>Align content <em>end</em> en el eje en bloque</h3>
 	<p>Si lo usamos en el contenedor, desde la posición por defecto <em>start</em>, moverá todas las filas y columnas hacia abajo.</p>
 	<code>
+		<!--
 		.wrapper {
 		   display: grid;
 		   grid-template-columns: repeat(3, 100px);
@@ -237,13 +275,15 @@
 		   "a a b"
 		   "c d d";
 		   align-content: end;
-		}   
+		} 
+		-->  
 	</code>
 
 	<h3>Otros valores de <em>align-content</em></h3>
 	<p>Con sus valores movemos todos los elementos/pistas en el eje de bloque, recordando que la condición es que siempre que haya espacio.</p>
 	<p>Si usamos <em>space-between</em> los elementos tomarán más espacio.</p>
 	<code>
+		<!--
 		.wrapper {
 		   display: grid;
 		   grid-template-columns: repeat(3, 100px);
@@ -269,6 +309,7 @@
 		.item4 {
 		   grid-area: d;
 		}
+		-->
 	</code>
 
 	<p>Los valores <em>space-between</em>, <em>space-around</em> y <em>space-evely</em> <span>afecta a todos los elementos</span> distribuyen el espacio y hacen que los elemenentos sean más grandes que abarcan más pistas, como es una cuadrícula en de tamaño fijo, debemos asegurarnos que el contenido pueda entrar sin desbordarse.</p>
@@ -276,6 +317,7 @@
 	<h2><em>justify-content</em> en para el eje en línea</h2>
 	<p>Si usamos el valor <em>space-around</em> separa los elementos en todas las líneas.</p>
 	<code>
+		<!--
 		.wrapper {
 		   display: grid;
 		   grid-template-columns: repeat(3, 100px);
@@ -302,11 +344,13 @@
 		.item4 {
 		   grid-area: d;
 		}
+		-->
 	</code>
 
 	<h3>Alineación y auto margen</h3>
 	<p>Al configurar el margen izquiedo y derecho en auto con margenes verticales en 0, centramos centramos los elementos de bloque. El valor <em>auto</em> absorve el espacio utilizado.</p>
-	<code>		
+	<code>
+		<!--		
 		.wrapper {
 		   display: grid;
 		   grid-template-columns: repeat(3, 100px);
@@ -319,10 +363,12 @@
 			   "a a b"
 			   "c d d";
 		}
+		-->
 		.item1 {
 			grid-area: a;
 			margin-left: auto;
 		}
+		<!--
 		.item2 {
 			grid-area: b;
 		}
@@ -332,6 +378,7 @@
 		.item4 {
 			grid-area: d;
 		} 
+		-->
 	</code>
 	<p>En el ejemplo tenemos, al elemento 1 le damos <em>margin-left: auto</em> que empuja todo el contenido hacia el otro lado por el espacio que no se haya utilizado, despues de que de demos espacio en el area.</p>
 	<p>Podemos usar las herramienentas para desarrolladores de grid para resaltar las lineas, las filas y columnas para ver estos espacios creados.</p>

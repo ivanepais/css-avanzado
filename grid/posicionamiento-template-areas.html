@@ -28,9 +28,10 @@
 	<p>Que define la estructura basica de una web.</p>
 	<p>Entonces, primero tomamos el elemento del html con css y le aplicamos la propiedad <em>grid-area</em> y el valor será un nombre.</p>
 	<code>
-		.header {
+		    .header {
            grid-area: header;
         }
+        <!--
         .content {
            grid-area: main;
         }
@@ -40,10 +41,12 @@
         .footer {
            grid-area: foot;
         }
+        -->
 	</code>
 
 	<p>Por ultimo, creamos el contendor grid con sus propiedades para crear filas/columnas, etc.</p>
 	<code>
+    <!--
 		.wrapper {
            display: grid;
            grid-template-columns: repeat(9, 1fr);
@@ -53,7 +56,7 @@
                "sd sd sd main main main main main main"
                "ft ft ft ft   ft   ft   ft   ft   ft";
         }
-
+    -->
 	</code>	
 	<p>Como tenemos 9 columnas, debemos poner el nombre del area que lleva el elemento para que ocupen cada lugar. las filas se "dibujan" encerrando  todo los nombre entre comillas dobles al principio y al final, debe terminar con un punto y coma. Usamos espacios para que el diagrama este perfectamente alíneado y prolijo.</p>
 
@@ -82,6 +85,7 @@
 		.header {
            grid-area: hd;
         }
+        <!--
         .footer {
            grid-area: ft;
         }
@@ -91,14 +95,17 @@
         .sidebar {
            grid-area: sd;
         }
+        -->
 	</code>
 
 	<p>Seguido, creamos una grilla minima de una columna con todas las areas necesarias para el diseño en grid.</p>
 	<code>
 		.wrapper {
+           <!--
            display: grid;
            grid-auto-rows: minmax(100px, auto);
            grid-template-columns: 1fr;
+         -->
            grid-template-areas:
                "hd"
                "main"
@@ -109,6 +116,7 @@
 
 	<p>Por ultimo vamos creando queries para diferentes tamaños de pantalla y dentro creamos los contenedores con las cantidades de filas y columnas necesarias.</p>
 	<code>
+    <!--
 		@media (min-width: 500px) {
             .wrapper {
                grid-template-columns: repeat(9, 1fr);
@@ -125,6 +133,7 @@
                    "sd sd main main main main main ft ft";
             }
         }
+      -->
 	</code>
 
 	<h2>Usar grid para diseños de interfaz de usuario</h2>
@@ -134,7 +143,8 @@
 	<p>En un contendor grid podemos poner un texto con una imagen al costado. Necesitamos dos columnas, una para la imagen y otra para el texto. El espacio dado para el texto puede ser mayor al espacio dado a la imagen, lo hacemos con <em>fr</em>, puede ser 1fr y 3fr.</p>
 	<p>Tambien podemos usar un tamaño fijo en px para la imagen y 1fr para el texto. Usamos <em>grid-area</em> afuera del contenedor para definir los nombres de las areas que usarán los elementos. Dentro del contendor diagramamos con <em>grid-template-areas</em>.</p>
 	<code>
-		* {
+        <!--
+		    * {
            box-sizing: border-box;
         }
 
@@ -158,6 +168,7 @@
            grid-area: content;
            padding: 10px;
         }
+      -->
 	</code>
 
 	<p>Podemos cambiar de lugar los elementos, intercambiando de lugar los valores de las propiedades <em>grid-template-columns</em> y <em>grid-template-areas</em>, reescribiendo está parte del cógido.</p>
@@ -183,6 +194,7 @@
 	<p>Afecta a las filas/columnas explicitas, las implicitas se configuran con <em>grid auto rows/colums</em>.</p>
 
 	<code>
+    <!--
 	.wrapper {
     display: grid;
     grid-template:
@@ -191,6 +203,7 @@
     "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
     / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }	
+  -->
 	</code>
 	<p>Tenemos el diseño de las areas, el tamaño de cada fila y al final ponemos el tamaño de cada columna.</p>
 
@@ -203,9 +216,11 @@
 	</ul>
 	<code>
     .wrapper {
+    <!--
     display: grid;
     grid:
     "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
+  -->
     "sd sd sd main main main main main main" minmax(100px, auto)
     "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
     / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;

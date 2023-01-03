@@ -14,15 +14,16 @@
 	<p>En grid, el <em>eje principal</em> es la dirección en <em>línea</em> y el <em>eje transversal</em> es la dirección en <em>bloque</em> por donde corren los elementos. La alineación de los elementos del contenedor se controla con <em>align-items</em> para el eje transversal (bloque) y <em>justify-content</em> para el eje principal (línea).</p>
 	<code>
 		.box {
-  display: grid;
-  width: 540px;
-  grid-template-columns: 120px 120px 120px;
-  align-items: start;
-  justify-content: space-between;
-}
+		  display: grid;
+		  width: 540px;
+		  grid-template-columns: 120px 120px 120px;
+		  align-items: start;
+		  justify-content: space-between;
+		}
 
-.box :first-child {
-    align-self: center;
+		.box :first-child {
+		    align-self: center;
+		}    
 	</code>
 
 	<h2>Ejes en Grid</h2>
@@ -60,7 +61,5 @@
 	</ul>
 	<p>Estas se usan tambien en otros metodos de diseño que tengan sentido el espacio sobrante.</p>
 	<p>Si un navegador no tiene compatibilidad para estas, se usan las <em>propiedades heredadas</em>: <em>grid-row-gap</em>, <em>grid-column-gap</em> y  <em>grid-gap</em>.</p>
-
-	
 </body>
 </html>

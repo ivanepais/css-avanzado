@@ -31,9 +31,19 @@
 	<h2>Contenedor de grid</h2>
 	<p>Para que elementos de un contenedor se dispongan en forma de cuadrícula debemos aplicarle <em>display: grid</em> o <em>display: inline-grid</em>.</p>
 	<code>
+		<!--
+		<div class="wrapper">
+		  <div>One</div>
+		  <div>Two</div>
+		  <div>Three</div>
+		  <div>Four</div>
+		  <div>Five</div>
+		</div>
+
 		.wrapper {
            display: grid;
         }
+    -->
 	</code>
 
 	<h2>Grid tracks</h2>
@@ -43,66 +53,80 @@
 	<h3>Columna o fila de tamaño absoluto</h3>
 	<p>Es un tamaño fijo, en este ejemplo son tres columnas fijas, los <em>elementos</em> en el contenedor se <span>amoldarán en éstas</span>.</p>
 	<code>
+		<!-- 
 		.wrapper {
            display: grid;
            grid-template-columns: 200px 200px 200px;
         }
+    	-->
 	</code>
 
 	<h3>Columna o fila de tamaño relativo</h3>
 	<p>El tamaño es responsivo, aplicando las mismas propiedades pero con la unidad <em>fr</em> que <span>representa una fracción del espacio disponible</span> en el contenedor.</p>
 	<code>
+		<!--
 		.wrapper {
            display: grid;
            grid-template-columns: 1fr 1fr 1fr;
         }
+    	-->
 	</code>						
 	<p>En el ejemplo, creamos tres tracks (de columna) que crecen y se reducen en un mismo ancho según el espacio disponible.</p>
 
 	<h3>Tamaños distintos</h3>
 	<p>Si le damos valores distintos de <em>fr</em>, las columnas cambiarán la proporcion de espacio para cada una.</p>
 	<code>
+		<!--
 		.wrapper {
            display: grid;
            grid-template-columns: 2fr 1fr 1fr;
         }
+    	-->
 	</code>
 	<p>El código se traduce como: "la primera columna tomará más tamaño disponible (dos partes) que las dos ultimas columnas (una parte cada una)".</p>
 
 	<h3>Mezclar tamaño responsivo y absoluto</h3>
 	<p>La primera columna tiene ancho fijo que resta espacio disponible, el resto del espacio se reparte en las otras dos.</p>
 	<code>
+		<!--
 		.wrapper {
            display: grid;
            grid-template-columns: 500px 1fr 2fr;
         }
+    	-->
 	</code>
 
 	<h3>Funcion repetir</h3>
 	<p>Cuando tenemos que crear una cuadrícula muy grande con muchos tracks o columnas/filas usamos la funcion <em>repeat()</em>, el primer valor será la <em>cantidad de tracks</em> o columna/fila y el segundo valor será el <em>tamaño</em>. Se usa dentro de <em>grid-template-columns</em> o <em>grid-template-rows</em>.</p>
 	<code>
+		<!--
 		.wrapper {
            display: grid;
            grid-template-columns: repeat(3, 1fr);
         }
+    	-->
 	</code>
 	<p>Habrá tres columnas proporcionadas con 1fr.</p>
 
 	<p>Repeat tambien se puede usar para una parte/track de una cuadrícula.</p>
 	<code>
+		<!--
 		.wrapper {
            display: grid;
            grid-template-columns: 20px repeat(6, 1fr) 20px;
-        }    
+        } 
+        -->   
 	</code>
 	<p>vemos que se repite la parte del medio con 6 columnas de 1fr.</p>
 
 	<p>Tambien podemos hacer repetir dos, tres columnas por una cantidad.</p>
 	<code>
+		<!--
 		.wrapper {
             display: grid;
             grid-template-columns: repeat(5, 1fr 2fr);
         }
+    	-->
 	</code>
 	<p>Habrá 10 columnas, 5 con 1fr y 5 con 2fr.</p>
 
@@ -115,11 +139,13 @@
 
 	<p>Por ejemplo:</p>
 	<code>
+		<!--
 		.wrapper {
            display: grid;
            grid-template-columns: repeat(3, 1fr);
            grid-auto-rows: 200px;
         }
+    	-->
 	</code>
 	<p>Usamos <em>grid-auto-rows</em> para <strong>garantizar</strong> que los tracks creados en grid implicito, tengan una altura de 200px. Con <em>1fr</em></p>
 
@@ -128,12 +154,26 @@
 	<p>Ademas de configurar las filas/columnas explicitas e implicitas con <em>grid-template</em> y <em>grid-auto</em>, tambien podemos darle un tamaño minimo a los tracks y tambien que se expandan y adapte cuando se agrege contenido.</p>
 	<p>En el ejemplo, aplicamos <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/minmax">minmax()</a> a la propiedad grid-auto-rows con un minimo de 100 y un valor maximo en <em>auto</em>, su contenido va a determinar el tamaño y se estirará para dejar espacio para el elemento más alto en una celda, en esta fila.</p>
 	<code>
+		<!--
 		.wrapper {
            display: grid;
            grid-template-columns: repeat(3, 1fr);
            grid-auto-rows: minmax(100px, auto);
         }
 
+        <div class="wrapper">
+		  <div>One</div>
+		  <div>
+		    Two
+		    <p>I have some more content in.</p>
+		    <p>This makes me taller than 100 pixels.</p>
+		  </div>
+		  <div>Three</div>
+		  <div>Four</div>
+		  <div>Five</div>
+		</div>
+
+		-->
 	</code>
 	<p>Tambien vemos que la fila entera se ajusta al contenido.</p>
 
@@ -144,6 +184,15 @@
 	<h3>Posicionar elemento entre las líneas</h3>
 	<p>Con las propiedades <em>grid-column-start</em>, <em>grid-column-end</em>, <em>grid-row-start</em> y <em>grid-row-end</em> apuntamos a las líneas, el <span>valor es el numero de línea dónde queremos que empieze y termine el elemento.</span>.</p>
 	<code>
+		<!--
+		<div class="wrapper">
+		  <div class="box1">One</div>
+		  <div class="box2">Two</div>
+		  <div class="box3">Three</div>
+		  <div class="box4">Four</div>
+		  <div class="box5">Five</div>
+		</div>
+
 		.wrapper {
            display: grid;
            grid-template-columns: repeat(3, 1fr);
@@ -156,12 +205,14 @@
            grid-row-start: 1;
            grid-row-end: 3;
         }
+    	-->
 	</code>
 	<p>El<a href="https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/examine_grid_layouts/index.html">inspector de grid</a> nos ayuda a ver cuales son los numeros de las líneas.</p>
 
 	<h3>Posicionar elmentos con la propiedad abrevida</h3>
 	<p>Usando <em>grid-column</em> y <em>grid-row</em>, los valores se separan con <em>/</em>.</p>
 	<code>
+		<!--
 		.wrapper {
            display: grid;
            grid-template-columns: repeat(3, 1fr);
@@ -172,6 +223,7 @@
            grid-column: 1 / 4;
            grid-row: 1 / 3;
         }
+    	-->
 	</code>
 
 	<h2>Grid celdas</h2>
@@ -183,12 +235,14 @@
 	<h2>Canales o espacios entre líneas</h2>
 	<p>Se crean utilizando <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap">column-gap</a> y <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap">row-gap</a>, tambien hay una propiedad abreviada, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gap">gap</a> para poner los dos al mismo tiempo.</p>
 	<code>
+		<!--
 		.wrapper {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             column-gap: 10px;
             row-gap: 1em;
         }
+    	-->
 	</code>
 	<p>Los canales le restan espacio libre para dimensionar elementos, por ejemplo, con <em>1fr</em>.</p>
 
@@ -202,6 +256,7 @@
             box-sizing: border-box;
         }
 
+        <!--
         .wrapper {
             border: 2px solid #f76707;
             border-radius: 5px;
@@ -225,11 +280,13 @@
             background-color: #fff9db;
             padding: 1em;
         }
+    	-->
 	</code>
 
 	<h3>Subgrid</h3>
 	<p>Permite crear subcuadrículas anidadas. En el ejemplo debemos aplicar subgrid en el elemento grid con subelementos.</p>
 	<code>
+		<!--
 		.box1 {
            grid-column-start: 1;
            grid-column-end: 4;
@@ -238,6 +295,7 @@
            display: grid;
            grid-template-columns: subgrid;
         }
+    	-->
 	</code>
 	<p>Por ahora solo es soportado desde Firefox 71 y Safari 16.</p>
 
@@ -246,6 +304,8 @@
 	<h3>Superposición sin  z-index</h3>
 	<p>Podemos ordenar los elementos para que se superpongan</p>
 	<code>
+		  <!--
+		  .box {
 		  display: grid;
              grid-template-columns: repeat(3, 1fr);
              grid-auto-rows: 100px;
@@ -263,12 +323,14 @@
              grid-row-start: 2;
              grid-row-end: 4;
           }
+      	-->
 	</code>
 	<p>La segunda celda se superpone a la primera</p>
 
 	<h3>Aplicando z-index en una superposición</h3>
 	<p>Cuanto más grande el valor de z-index más arriba del apilamiento estará el elemento.</p>
 	<code>
+		<!--
         .box1 {
            z-index: 2;
         }
@@ -276,6 +338,7 @@
         .box2 {
            z-index: 1;
         }
+    	-->
 	</code>
 	<p>Vemos que ahora, la primera celda se superpone a la segunda.</p>
 
